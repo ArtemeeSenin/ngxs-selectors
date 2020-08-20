@@ -1,0 +1,10 @@
+<h2>Animal list</h2>
+<h3>{{happyAnimal$ | async}}</h3>
+<ng-container *ngIf="isAnimalsHungry$ | async then hungry else feeded"></ng-container>
+<ng-template #hungry> WE ARE <b>HUGRY</b></ng-template>
+<ng-template #feeded>Animals are <b>feeded</b></ng-template>
+<hr>
+<ul>
+    <li *ngFor="let name of (animals$ | async); trackBy: trachByFn">{{name}}</li>
+</ul>
+<hr>
